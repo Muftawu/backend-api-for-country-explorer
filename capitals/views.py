@@ -24,8 +24,7 @@ def add_country(request):
 def images(request, pk):
     img = countries.objects.get(pk=pk)
     context = {'img': img}
-    return HttpResponse(img.image.path)
-    # return render(request, 'imgs.html', context)
+    return HttpResponse(img.image, content_type='image/png')
 
 
     
