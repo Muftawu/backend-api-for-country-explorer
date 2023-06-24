@@ -20,8 +20,10 @@ def add_country(request):
     
     return Response(serializer.data)
 
+def images(request, pk):
+    img = countries.objects.get(pk=pk)
+    context = {'img': img}
+    return render(request, 'imgs.html', context)
 
-class EventViewSet(viewsets.ModelViewSet):
-    queryset = countries.objects.all()
-    serializer_class = country_serializer
+
     
